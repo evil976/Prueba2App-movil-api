@@ -9,10 +9,15 @@ import { DbService } from 'src/app/services/db.service';
 })
 export class InicioPage implements OnInit {
   correo: string = '';
+  nombre: string = '';
+  apellido: string = '';
   constructor(private db: DbService, private router: Router) {}
 
   async ngOnInit() {
     this.correo = await this.db.obtenerCorreoLogueado();
+    let objeto = await this.db.obtenerUsuarioLogueado(this.correo);
+    this.nombre = objeto.nombre;
+    this.apellido = objeto.apellido;
   }
 
   async cerrarSesion() {
