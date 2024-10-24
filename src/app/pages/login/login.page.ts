@@ -12,6 +12,7 @@ export class LoginPage implements OnInit {
 
   mdl_mail: string = '';
   mdl_pass: string = '';
+
   constructor(private router: Router, private db: DbService) {}
 
   async ngOnInit() {}

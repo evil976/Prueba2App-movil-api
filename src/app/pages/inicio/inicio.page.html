@@ -30,20 +30,19 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card class="sede">
-    <img alt="PAO" src="assets/Padre_alonso_ovalle_sede.jpg" />
-    <ion-card-header>
-      <ion-card-title>PAO</ion-card-title>
-      <ion-card-subtitle>Padre Alonso de Ovalle</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content> La mejor sede de todos los tiempos </ion-card-content>
-  </ion-card>
-  <div class="button-container">
-    <ion-button class="custom-button" expand="block" (click)="cerrarSesion()">
-      Cerrar sesión
-    </ion-button>
-    <ion-button class="custom-button" expand="block" (click)="sedes()">
-      Sedes Duoc
-    </ion-button>
-  </div>
+  <ion-footer class="fixed-footer">
+    <ion-toolbar>
+      <div class="footer-icons">
+        <ion-tab-button>
+          <ion-icon name="home-outline"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button (click)="sedes()">
+          <ion-icon name="map-outline"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button (click)="cerrarSesion()">
+          <ion-icon name="log-out-outline"></ion-icon>
+        </ion-tab-button>
+      </div>
+    </ion-toolbar>
+  </ion-footer>
 </ion-content>

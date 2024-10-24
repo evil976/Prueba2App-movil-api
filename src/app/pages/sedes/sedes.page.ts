@@ -10,7 +10,7 @@ import { lastValueFrom } from 'rxjs';
 })
 export class SedesPage implements OnInit {
   lista_sedes: any[] = [];
-  constructor(private api: ApiService, private route: Router) {}
+  constructor(private api: ApiService, private router: Router) {}
 
   ngOnInit() {
     this.obtencionSedes();
@@ -34,5 +34,13 @@ export class SedesPage implements OnInit {
 
       this.lista_sedes.push(sede);
     }
+  }
+
+  inicio() {
+    this.router.navigate(['/inicio'], { replaceUrl: true });
+  }
+
+  cerrarSesion() {
+    this.router.navigate(['/login'], { replaceUrl: true });
   }
 }
