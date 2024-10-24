@@ -1,13 +1,28 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>sedes</ion-title>
+    <ion-title>Sedes</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">sedes</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="background">
+  <ion-list>
+    <!-- Iteramos sobre la lista de sedes obtenida en la función -->
+    <ion-item *ngFor="let sede of lista_sedes">
+      <ion-card>
+        <img [src]="sede.imagen" alt="Imagen de la sede" />
+
+        <ion-card-header>
+          <ion-card-title>{{ sede.nombre }}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <p><strong>Dirección:</strong> {{ sede.direccion }}</p>
+          <p><strong>Teléfono:</strong> {{ sede.telefono }}</p>
+          <p>
+            <strong>Horario de atención:</strong> {{ sede.horario_atencion }}
+          </p>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
 </ion-content>

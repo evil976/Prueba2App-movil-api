@@ -29,4 +29,8 @@ export class InicioPage implements OnInit {
       console.error('Error al cerrar sesión', error);
     }
   }
+
+  sedes() {
+    this.router.navigate(['/sedes'], { replaceUrl: true });
+  }
 }
