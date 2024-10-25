@@ -27,7 +27,7 @@ export class ApiService {
       .pipe();
   }
 
-  login(correo: string, contrasena: string) {
+  loginUsuario(correo: string, contrasena: string) {
     let objeto: any = {};
     objeto.correo = correo;
     objeto.contrasena = contrasena;
