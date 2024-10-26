@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'sedes',
     loadChildren: () => import('./pages/sedes/sedes.module').then( m => m.SedesPageModule)
   },
+  {
+    path: 'cambio-datos',
+    loadChildren: () => import('./pages/cambio-datos/cambio-datos.module').then( m => m.CambioDatosPageModule)
+  },
 ];
 
 @NgModule({

@@ -18,8 +18,9 @@ export class SedesPage implements OnInit {
 
   async obtencionSedes() {
     this.lista_sedes = []; //inicializar lista vacia para limpiar cada vez que se ejecute
-    let data = this.api.obtencionSedes();
-    let response = await lastValueFrom(data); //se espera que salga el ultimo dato sobre los sismos
+    //estoy cambiando de "data" a "datos" para probrar
+    let datos = this.api.obtencionSedes();
+    let response = await lastValueFrom(datos); //se espera que salga el ultimo dato sobre los sismos
 
     let jsonTxt = JSON.stringify(response); //json toma los objetos y el metodo stringy convierte a texto la respuesta
     let json = JSON.parse(jsonTxt); //el parse separa por objeto(para recorrer)

@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cambio de Datos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="actualizarDatos()">
+    <ion-item>
+      <ion-label position="floating">Correo Actual</ion-label>
+      <ion-input
+        type="email"
+        [(ngModel)]="mdl_correo_actual"
+        name="correoActual"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Nueva Contraseña</ion-label>
+      <ion-input
+        type="password"
+        [(ngModel)]="mdl_contrasena_nueva"
+        name="contrasenaNueva"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Nueva Carrera</ion-label>
+      <ion-input
+        type="text"
+        [(ngModel)]="mdl_carrera_nueva"
+        name="carreraNueva"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit">Actualizar Datos</ion-button>
+  </form>
+</ion-content>

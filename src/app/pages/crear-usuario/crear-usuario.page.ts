@@ -22,17 +22,17 @@ export class CrearUsuarioPage implements OnInit {
   ) {}
 
   ngOnInit() {}
-
-  async almacenarUsuario() {
-    await this.db.usuarioAlmacenar(
-      this.mdl_mail,
-      this.mdl_pass,
-      this.mdl_nombre,
-      this.mdl_apellido,
-      this.mdl_carrera
-    );
-    this.router.navigate(['login']);
-  }
+  //esta funcion registra los datos en la base de datos local
+  //async almacenarUsuario() {
+  //await this.db.usuarioAlmacenar(
+  //this.mdl_mail,
+  //this.mdl_pass,
+  //this.mdl_nombre,
+  //this.mdl_apellido,
+  //this.mdl_carrera
+  //);
+  //this.router.navigate(['login']);
+  //}
 
   async registrar() {
     try {
@@ -65,11 +65,18 @@ export class CrearUsuarioPage implements OnInit {
         this.router.navigate(['login'], { replaceUrl: true });
       } else {
         // Manejo de error si el registro en la API falla
-        console.log('Error al Crear Usuario: ' + json.message);
+        console.log('JRD: Error al Crear Usuario: ' + json.message);
       }
     } catch (error) {
       // Manejo de errores en el proceso de registro
-      console.error('Se produjo un error al registrar el usuario: ', error);
+      console.error(
+        'JRD: Se produjo un error al registrar el usuario: ',
+        error
+      );
     }
+  }
+
+  home() {
+    this.router.navigate(['inicio'], { replaceUrl: true });
   }
 }

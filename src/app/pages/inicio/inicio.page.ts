@@ -33,4 +33,8 @@ export class InicioPage implements OnInit {
   sedes() {
     this.router.navigate(['/sedes'], { replaceUrl: true });
   }
+
+  cambioPass() {
+    this.router.navigate(['/cambio-datos'], { replaceUrl: true });
+  }
 }
