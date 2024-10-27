@@ -40,4 +40,10 @@
     <ion-button (click)="login()">INGRESAR</ion-button>
     <ion-button (click)="navegarCrearUsuario()">Crear Cuenta</ion-button>
   </div>
+
+  <div *ngIf="loadingVisible" class="loading-message">
+    Cargando, por favor espere...
+  </div>
+
+  <div *ngIf="warningVisible" class="item-warning">{{ warningMessage }}</div>
 </ion-content>

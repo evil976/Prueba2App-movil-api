@@ -14,6 +14,9 @@ export class LoginPage implements OnInit {
 
   mdl_mail: string = '';
   mdl_pass: string = '';
+  warningMessage: string = '';
+  warningVisible: boolean = false; // Controla la visibilidad del mensaje de advertencia
+  loadingVisible: boolean = false; // Controla la visibilidad del mensaje de carga
 
   constructor(
     private router: Router,
@@ -44,6 +47,8 @@ export class LoginPage implements OnInit {
   //}
 
   async login() {
+    this.loadingVisible = true; // Muestra el mensaje de carga
+    this.warningVisible = false; // Oculta el mensaje de advertencia al iniciar el proceso
     try {
       // Llamada a la API para el inicio de sesión
       let datos = this.api.loginUsuario(this.mdl_mail, this.mdl_pass);
@@ -67,9 +72,22 @@ export class LoginPage implements OnInit {
         this.router.navigate(['inicio'], { replaceUrl: true });
       } else {
         console.log('JRD API: Error al Iniciar Sesión: ' + json.message);
+        this.warningMessage = 'Error al iniciar sesión: ' + json.message;
+        this.warningVisible = true;
+        setTimeout(() => {
+          this.warningVisible = false; // Oculta el mensaje después de 3 segundos
+        }, 3000);
       }
     } catch (error) {
       console.error('JRD: Error al consumir API', error);
+      this.warningMessage =
+        'Error en la conexión. Por favor, intente nuevamente.';
+      this.warningVisible = true;
+      setTimeout(() => {
+        this.warningVisible = false; // Oculta el mensaje después de 3 segundos
+      }, 3000);
+    } finally {
+      this.loadingVisible = false; // Oculta el mensaje de carga
     }
   }
 }

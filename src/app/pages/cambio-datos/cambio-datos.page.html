@@ -1,6 +1,12 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Cambio de Datos</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar class="barra">
+    <ion-grid>
+      <div class="center-container">
+        <ion-col size="auto">
+          <img src="assets/logo-duoc.png" class="logo" />
+        </ion-col>
+      </div>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 
@@ -38,4 +44,20 @@
 
     <ion-button expand="full" type="submit">Actualizar Datos</ion-button>
   </form>
+
+  <ion-footer class="fixed-footer">
+    <ion-toolbar>
+      <div class="footer-icons">
+        <ion-tab-button (click)="home()">
+          <ion-icon name="home-outline"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button (click)="sedes()">
+          <ion-icon name="map-outline"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button (click)="cerrarSesion()">
+          <ion-icon name="log-out-outline"></ion-icon>
+        </ion-tab-button>
+      </div>
+    </ion-toolbar>
+  </ion-footer>
 </ion-content>

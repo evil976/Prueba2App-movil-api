@@ -142,3 +142,33 @@ ion-content.background {
   right: 0;
   z-index: 1000;
 }
+
+.item-warning {
+  --background: rgba(255, 3, 3, 0.219); /* Color de fondo */
+  --color: #ffffff; /* Color del texto */
+  background-color: var(--background);
+  color: var(--color);
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 5px;
+  margin-top: 55px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+}
+
+.sede {
+  --ion-card-background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(190, 203, 255, 0.514) 0%,
+    rgba(103, 43, 176, 0.781) 100%,
+    rgba(42, 31, 162, 1) 100%
+  );
+  --color: #000000;
+  border-radius: 35px;
+  text-align: center;
+}
+
+.card-subtitle {
+  --color: #ffffff;
+}

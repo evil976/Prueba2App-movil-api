@@ -15,6 +15,9 @@ export class CrearUsuarioPage implements OnInit {
   mdl_nombre: string = '';
   mdl_apellido: string = '';
   mdl_carrera: string = '';
+  warningMessage: string = '';
+  warningVisible: boolean = false; // Controla la visibilidad del mensaje de advertencia
+  loadingVisible: boolean = false; // Controla la visibilidad del mensaje de carga
   constructor(
     private db: DbService,
     private router: Router,
@@ -35,6 +38,8 @@ export class CrearUsuarioPage implements OnInit {
   //}
 
   async registrar() {
+    this.loadingVisible = true; // Muestra el mensaje de carga
+    this.warningVisible = false; // Oculta el mensaje de advertencia al iniciar el proceso
     try {
       // Registro de datos en la API
       let datos = this.api.creacionUsuario(
@@ -66,6 +71,11 @@ export class CrearUsuarioPage implements OnInit {
       } else {
         // Manejo de error si el registro en la API falla
         console.log('JRD: Error al Crear Usuario: ' + json.message);
+        this.warningMessage = 'Error al crear Usuario: ' + json.message;
+        this.warningVisible = true;
+        setTimeout(() => {
+          this.warningVisible = false; // Oculta el mensaje después de 3 segundos
+        }, 3000);
       }
     } catch (error) {
       // Manejo de errores en el proceso de registro
@@ -73,10 +83,18 @@ export class CrearUsuarioPage implements OnInit {
         'JRD: Se produjo un error al registrar el usuario: ',
         error
       );
+      this.warningMessage =
+        'Error en la conexión. Por favor, intente nuevamente.';
+      this.warningVisible = true;
+      setTimeout(() => {
+        this.warningVisible = false; // Oculta el mensaje después de 3 segundos
+      }, 3000);
+    } finally {
+      this.loadingVisible = false; // Oculta el mensaje de carga
     }
   }
 
   home() {
-    this.router.navigate(['inicio'], { replaceUrl: true });
+    this.router.navigate(['login'], { replaceUrl: true });
   }
 }

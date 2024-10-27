@@ -27,10 +27,21 @@
     <ion-card-content class="custom-card-content">
       <h2>Hola, {{ nombre }} {{ apellido }}</h2>
       <p>Bienvenido a tu perfil.</p>
+      <ion-button (click)="cambioPass()">cambio pass</ion-button>
     </ion-card-content>
   </ion-card>
 
-  <ion-button (click)="cambioPass()">cambio pass</ion-button>
+  <ion-card class="sede">
+    <img alt="PAO" src="assets/biblioteca.jpg" />
+    <ion-card-header>
+      <ion-card-subtitle class="card-subtitle"
+        >Bibliotec DuocUC</ion-card-subtitle
+      >
+    </ion-card-header>
+    <ion-card-content>
+      Posterirmentes se configurara para una función a realizar
+    </ion-card-content>
+  </ion-card>
 
   <ion-footer class="fixed-footer">
     <ion-toolbar>

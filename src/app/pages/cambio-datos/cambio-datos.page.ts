@@ -59,13 +59,21 @@ export class CambioDatosPage implements OnInit {
       // Cierra sesión si es necesario
       this.cerrarSesion();
     } else {
-      // Maneja el error, pero sin establecer v_visible ni v_mensaje
-      console.error('Error:', json.message);
+      // Maneja el error
+      console.error('JRD: Error:', json.message);
     }
   }
 
   cerrarSesion() {
     this.db.cerrarSesion();
     this.router.navigate(['login'], { replaceUrl: true });
+  }
+
+  sedes() {
+    this.router.navigate(['/sedes'], { replaceUrl: true });
+  }
+
+  home() {
+    this.router.navigate(['/inicio']);
   }
 }
