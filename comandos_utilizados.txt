@@ -1,0 +1,48 @@
+  _             _
+  (_) ___  _ __ (_) ___
+  | |/ _ \| '_ \| |/ __|
+  | | (_) | | | | | (__
+  |_|\___/|_| |_|_|\___| CLI 7.2.0
+
+
+1.- Se inicia proyecto IONIC
+ionic start app-api blank --type=angular
+
+2.- instalar base de datos
+npm installl cordova-sqlite-storage
+3.- motor de la base de datos
+npm install @awesome-cordova-plugins/sqlite
+4.- importar
+import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
+5.- modificar providers
+providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, SQLite],
+
+6.- pegar import en la vista que se genero ts
+import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
+
+7.-Se crean las vistas
+ionic g page pages/login
+ionic g page pages/splash
+ionic g page pages/crear-usuario
+ionic g page pages/inicio
+ionic g page pages/sedes
+ionic g page pages/cambio-datos
+
+8.- Se crean los servicios
+ionic g service services/db
+ionic g service services/api
+
+NATIVIZAR
+
+9.- ionic cap sync (sincroniza las instalaciones)
+(cada vez que se instala un componente externo)
+
+10.- npm install @capacitor/android
+integrar la plataforma Android
+
+11.- npx cap add android
+genera una carpeta /android en el proyecto, que contiene el código y las configuraciones propias de android, y configura el proyecto para abrirse en android Studio.
+
+12.- ejecutamos nuestro proyecto android
+ionic cap run android --livereload --external
+permite cargar la aplicacion en el emulador en tiempor real en nuestro android studio
